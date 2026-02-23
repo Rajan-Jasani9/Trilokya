@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F4F6F7;
+    color: #111827;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
+
+  /* Restrained scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #b3d4d4; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #4f9797; }
+}
+
+@layer components {
+  /* ─── Card ─── */
+  .card {
+    @apply bg-white rounded-md border transition-all duration-150;
+    border-color: #D9E2E2;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .card-hover {
+    @apply hover:border-primary-300;
+    /* subtle lift on hover, no heavy shadows */
+  }
+  .card-hover:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  /* ─── Buttons ─── */
+  .btn-primary {
+    @apply px-5 py-2 bg-primary-600 text-white rounded font-medium text-sm
+           hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-1
+           disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150
+           min-h-[44px] inline-flex items-center justify-center gap-2;
+  }
+  .btn-secondary {
+    @apply px-5 py-2 bg-white text-primary-700 rounded font-medium text-sm
+           hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-1
+           disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150
+           min-h-[44px] inline-flex items-center justify-center gap-2;
+    border: 1px solid #146C6C;
+  }
+  .btn-danger {
+    @apply px-5 py-2 text-white rounded font-medium text-sm
+           focus:outline-none focus:ring-2 focus:ring-offset-1
+           disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150
+           min-h-[44px] inline-flex items-center justify-center gap-2;
+    background-color: #C44536;
+  }
+  .btn-danger:hover { background-color: #A83A2E; }
+  .btn-danger:focus { --tw-ring-color: #C44536; }
+
+  .btn-ghost {
+    @apply px-3 py-2 text-primary-700 rounded font-medium text-sm
+           hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-1
+           disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-150
+           min-h-[44px] inline-flex items-center justify-center gap-2;
+  }
+
+  /* ─── Inputs ─── */
+  .input {
+    @apply w-full px-3 py-2.5 rounded text-sm transition-colors duration-150
+           focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:outline-none;
+    border: 1px solid #D9E2E2;
+  }
+  .input:disabled {
+    @apply bg-gray-50 text-gray-500 cursor-not-allowed;
+  }
+  .input-error {
+    border-color: #C44536 !important;
+  }
+  .input-error:focus {
+    --tw-ring-color: #C44536;
+    border-color: #C44536;
+  }
+
+  /* ─── Select ─── */
+  select.input {
+    @apply appearance-none bg-no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234b5563' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 5.646a.5.5 0 0 1 .708 0L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+    background-size: 16px;
+    padding-right: 2.5rem;
+  }
+
+  /* ─── Badges (restrained, not pill-shaped) ─── */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold tracking-wide;
+  }
+  .badge-success {
+    background-color: #DDEEE1;
+    color: #2E7D32;
+  }
+  .badge-warning {
+    background-color: #F4E8D2;
+    color: #D4A017;
+  }
+  .badge-danger {
+    background-color: #F4E0DD;
+    color: #C44536;
+  }
+  .badge-info {
+    @apply bg-primary-100 text-primary-700;
+  }
+  .badge-gray {
+    @apply bg-gray-100 text-gray-700;
+  }
+
+  /* ─── Alert boxes ─── */
+  .alert-error {
+    @apply text-sm rounded-md px-4 py-3;
+    background-color: #F4E0DD;
+    color: #C44536;
+    border-left: 3px solid #C44536;
+  }
+  .alert-success {
+    @apply text-sm rounded-md px-4 py-3;
+    background-color: #DDEEE1;
+    color: #2E7D32;
+    border-left: 3px solid #2E7D32;
+  }
+  .alert-info {
+    @apply text-sm rounded-md px-4 py-3 bg-primary-50 text-primary-800;
+    border-left: 3px solid #146C6C;
+  }
+
+  /* ─── Page Header ─── */
+  .page-header {
+    @apply flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6;
+  }
+  .page-title {
+    @apply text-2xl font-semibold text-gray-900 tracking-tight;
+  }
+
+  /* ─── Section Header ─── */
+  .section-header {
+    @apply flex items-center justify-between mb-4 pb-3;
+    border-bottom: 1px solid #D9E2E2;
+  }
+  .section-title {
+    @apply text-lg font-semibold text-gray-900;
+  }
+
+  /* ─── Label ─── */
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1.5;
+  }
+  .form-label-required::after {
+    content: ' *';
+    color: #C44536;
+  }
+
+  /* ─── Table (override for teal header) ─── */
+  .table-header {
+    background-color: #f0f6f6;
+  }
+}
