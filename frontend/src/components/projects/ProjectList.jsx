@@ -3,9 +3,16 @@ import api from '../../services/api'
 import ResponsiveTable from '../common/Table'
 import LoadingSpinner from '../common/LoadingSpinner'
 import Dropdown, { DropdownItem } from '../common/Dropdown'
-import { FiPlus, FiSearch, FiFilter, FiEdit, FiUsers, FiEye } from 'react-icons/fi'
+import { FiPlus, FiSearch, FiFilter, FiEdit, FiUsers, FiEye, FiTrash2 } from 'react-icons/fi'
+import { useAuth } from '../../context/AuthContext'
 
-const ProjectList = ({ onProjectSelect, onCreateProject, onEditProject, onAssignMembers, refreshTrigger }) => {
+const ProjectList = ({ onProjectSelect, onCreateProject, onEditProject, onAssignMembers, onDeleteProject, refreshTrigger }) => {
+  const { user } = useAuth()
+  const roles = user?.roles || []
+  const canDeleteProject =
+    Array.isArray(roles)
+      ? (roles.includes('Manager') || roles.includes('SuperAdmin'))
+      : (typeof roles === 'string' && (roles.includes('Manager') || roles.includes('SuperAdmin')))
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
@@ -111,6 +118,11 @@ const ProjectList = ({ onProjectSelect, onCreateProject, onEditProject, onAssign
                     <DropdownItem icon={FiEye} onClick={() => onProjectSelect(project)}>View Details</DropdownItem>
                     <DropdownItem icon={FiEdit} onClick={() => onEditProject && onEditProject(project)}>Edit Project</DropdownItem>
                     <DropdownItem icon={FiUsers} onClick={() => onAssignMembers && onAssignMembers(project)}>Assign Members</DropdownItem>
+                    {canDeleteProject && onDeleteProject && (
+                      <DropdownItem icon={FiTrash2} danger onClick={() => onDeleteProject(project)}>
+                        Delete project
+                      </DropdownItem>
+                    )}
                   </Dropdown>
                 </div>
               </td>
@@ -136,6 +148,11 @@ const ProjectList = ({ onProjectSelect, onCreateProject, onEditProject, onAssign
                 <Dropdown>
                   <DropdownItem icon={FiEdit} onClick={() => onEditProject && onEditProject(project)}>Edit</DropdownItem>
                   <DropdownItem icon={FiUsers} onClick={() => onAssignMembers && onAssignMembers(project)}>Assign Members</DropdownItem>
+                  {canDeleteProject && onDeleteProject && (
+                    <DropdownItem icon={FiTrash2} danger onClick={() => onDeleteProject(project)}>
+                      Delete
+                    </DropdownItem>
+                  )}
                 </Dropdown>
               </div>
             </div>

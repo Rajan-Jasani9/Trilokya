@@ -1,7 +1,9 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from app.config import settings
-from app.api.routes import auth, users, projects, ctes, trl, evidence, approvals, admin, audit
+from app.api.routes import auth, users, projects, ctes, trl, evidence, approvals, admin, audit, technologies
 from app.database import engine, Base
 
 # Create tables (in production, use Alembic migrations)
@@ -12,6 +14,11 @@ app = FastAPI(
     description="Technology Readiness Level Monitoring and Governance System",
     version="1.0.0"
 )
+
+# Mount media directory for serving technology icons and other static assets
+MEDIA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "media")
+os.makedirs(os.path.join(MEDIA_DIR, "technologies"), exist_ok=True)
+app.mount("/media", StaticFiles(directory=MEDIA_DIR), name="media")
 
 app.add_middleware(
     CORSMiddleware,
@@ -31,6 +38,7 @@ app.include_router(evidence.router, prefix="/api/evidence", tags=["Evidence"])
 app.include_router(approvals.router, prefix="/api/approvals", tags=["Approvals"])
 app.include_router(admin.router, prefix="/api/admin", tags=["Admin"])
 app.include_router(audit.router, prefix="/api/audit", tags=["Audit"])
+app.include_router(technologies.router, prefix="/api/technologies", tags=["Technologies"])
 
 
 @app.get("/")

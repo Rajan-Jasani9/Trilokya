@@ -33,6 +33,7 @@ class Project(Base):
     ctes = relationship("CTE", back_populates="project", cascade="all, delete-orphan")
     trl_overrides = relationship("ProjectTRLOverride", back_populates="project", cascade="all, delete-orphan")
     trl_assessments = relationship("ProjectTRLAssessment", back_populates="project", cascade="all, delete-orphan")
+    technologies = relationship("ProjectTechnology", back_populates="project", cascade="all, delete-orphan")
 
 
 class ProjectOrgUnit(Base):
@@ -58,6 +59,17 @@ class ProjectMember(Base):
     # Relationships
     project = relationship("Project", back_populates="members")
     user = relationship("User", back_populates="project_memberships")
+
+
+class ProjectTechnology(Base):
+    __tablename__ = "project_technologies"
+
+    project_id = Column(Integer, ForeignKey("projects.id", ondelete="CASCADE"), primary_key=True)
+    technology_id = Column(Integer, ForeignKey("technologies.id", ondelete="CASCADE"), primary_key=True)
+
+    # Relationships
+    project = relationship("Project", back_populates="technologies")
+    technology = relationship("Technology", back_populates="projects")
 
 
 class ProjectTRLOverride(Base):

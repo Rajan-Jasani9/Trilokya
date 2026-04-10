@@ -4,7 +4,7 @@ from typing import List
 from app.database import get_db
 from app.models import CTE, Project
 from app.schemas.cte import CTECreate, CTEUpdate, CTEResponse
-from app.api.deps import get_current_active_user, check_project_access
+from app.api.deps import get_current_active_user, check_project_access, require_minimum_role_level
 
 router = APIRouter()
 
@@ -54,6 +54,38 @@ async def create_cte(
             db.commit()
     
     return cte
+
+
+@router.delete("/{cte_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_cte(
+    cte_id: int,
+    db: Session = Depends(get_db),
+    current_user = Depends(require_minimum_role_level(4)),  # Manager or SuperAdmin
+):
+    """Delete a CTE and its assessments (cascade). Recomputes project target TRL."""
+    from app.api.deps import check_cte_access
+    from app.core.trl_engine import compute_project_target_trl
+
+    await check_cte_access(cte_id)(current_user=current_user, db=db)
+
+    cte = db.query(CTE).filter(CTE.id == cte_id).first()
+    if not cte:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="CTE not found",
+        )
+
+    project_id = cte.project_id
+    db.delete(cte)
+    db.commit()
+
+    project = db.query(Project).filter(Project.id == project_id).first()
+    if project:
+        computed = compute_project_target_trl(db, project_id)
+        project.target_trl = computed
+        db.commit()
+
+    return None
 
 
 @router.get("/{cte_id}", response_model=CTEResponse)

@@ -4,10 +4,10 @@ import LoadingSpinner from '../common/LoadingSpinner'
 import Modal from '../common/Modal'
 import ProjectMemberAssignment from './ProjectMemberAssignment'
 import ProjectMetricsInfographic from './ProjectMetricsInfographic'
-import { FiEdit, FiUsers, FiPlus, FiArrowLeft, FiFolder } from 'react-icons/fi'
+import { FiEdit, FiUsers, FiPlus, FiArrowLeft, FiFolder, FiTrash2 } from 'react-icons/fi'
 import { useAuth } from '../../context/AuthContext'
 
-const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refreshTrigger }) => {
+const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refreshTrigger, onProjectDeleted }) => {
   const [project, setProject] = useState(null)
   const [ctes, setCtes] = useState([])
   const [members, setMembers] = useState([])
@@ -20,6 +20,11 @@ const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refr
     ? (userRoles.includes('Manager') || userRoles.includes('Assistant Manager'))
     : (userRoles === 'Manager' || userRoles === 'Assistant Manager' ||
        (typeof userRoles === 'string' && (userRoles.includes('Manager') || userRoles.includes('Assistant Manager'))))
+
+  const canDeleteProjectOrCTE = Array.isArray(userRoles)
+    ? (userRoles.includes('Manager') || userRoles.includes('SuperAdmin'))
+    : (userRoles === 'Manager' || userRoles === 'SuperAdmin' ||
+       (typeof userRoles === 'string' && (userRoles.includes('Manager') || userRoles.includes('SuperAdmin'))))
 
   useEffect(() => { loadProject(); loadCTEs(); loadMembers() }, [projectId, refreshTrigger])
 
@@ -48,6 +53,30 @@ const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refr
     catch (error) {
       console.error('Error loading members:', error)
       try { const pr = await api.get(`/projects/${projectId}`); if (pr.data.members) setMembers(pr.data.members) } catch {}
+    }
+  }
+
+  const handleDeleteProject = async () => {
+    if (!window.confirm(`Delete project "${project?.name}" (${project?.code})? This cannot be undone.`)) return
+    try {
+      await api.delete(`/projects/${projectId}`)
+      onProjectDeleted?.()
+    } catch (error) {
+      console.error('Error deleting project:', error)
+      alert(error.response?.data?.detail || 'Failed to delete project')
+    }
+  }
+
+  const handleDeleteCTE = async (e, cte) => {
+    e.stopPropagation()
+    if (!window.confirm(`Delete CTE "${cte.name}" (${cte.code})? This cannot be undone.`)) return
+    try {
+      await api.delete(`/ctes/${cte.id}`)
+      loadCTEs()
+      loadProject()
+    } catch (error) {
+      console.error('Error deleting CTE:', error)
+      alert(error.response?.data?.detail || 'Failed to delete CTE')
     }
   }
 
@@ -83,6 +112,15 @@ const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refr
             <button onClick={() => onAddCTE(project.id)} className="btn-primary text-sm">
               <FiPlus className="h-4 w-4" /><span>Add CTE</span>
             </button>
+            {canDeleteProjectOrCTE && (
+              <button
+                type="button"
+                onClick={handleDeleteProject}
+                className="btn-secondary text-sm border-red-200 text-red-700 hover:bg-red-50"
+              >
+                <FiTrash2 className="h-4 w-4" /><span>Delete project</span>
+              </button>
+            )}
           </div>
         </div>
 
@@ -155,7 +193,7 @@ const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refr
                 className="card card-hover p-4 cursor-pointer"
                 onClick={() => { window.location.href = `/app/ctes?cteId=${cte.id}` }}
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">
                     <h3 className="text-sm font-semibold text-gray-900 truncate">{cte.name}</h3>
                     <p className="text-xs font-mono text-gray-400 mt-0.5">{cte.code}</p>
@@ -163,11 +201,23 @@ const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refr
                       <p className="text-xs text-gray-500 mt-1.5 line-clamp-2">{cte.description}</p>
                     )}
                   </div>
-                  {cte.target_trl && (
-                    <span className="badge badge-info ml-2 flex-shrink-0 text-[10px]">
-                      Target TRL {cte.target_trl}
-                    </span>
-                  )}
+                  <div className="flex flex-col items-end gap-1 flex-shrink-0">
+                    {cte.target_trl && (
+                      <span className="badge badge-info text-[10px]">
+                        Target TRL {cte.target_trl}
+                      </span>
+                    )}
+                    {canDeleteProjectOrCTE && (
+                      <button
+                        type="button"
+                        title="Delete CTE"
+                        className="p-1.5 rounded text-red-600 hover:bg-red-50"
+                        onClick={(e) => handleDeleteCTE(e, cte)}
+                      >
+                        <FiTrash2 className="h-4 w-4" />
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

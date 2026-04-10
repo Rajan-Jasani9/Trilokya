@@ -5,6 +5,7 @@ import LoadingSpinner from '../common/LoadingSpinner'
 const ProjectForm = ({ project, onSave, onCancel }) => {
   const [loading, setLoading] = useState(false)
   const [orgUnits, setOrgUnits] = useState([])
+  const [technologies, setTechnologies] = useState([])
   const [formData, setFormData] = useState({
     code: project?.code || '',
     name: project?.name || '',
@@ -14,10 +15,14 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
     start_date: project?.start_date ? project.start_date.split('T')[0] : '',
     end_date: project?.end_date ? project.end_date.split('T')[0] : '',
     org_unit_ids: project?.org_unit_ids || [],
+    technology_ids: project?.technology_ids || [],
   })
   const [errors, setErrors] = useState({})
 
-  useEffect(() => { loadOrgUnits() }, [])
+  useEffect(() => {
+    loadOrgUnits()
+    loadTechnologies()
+  }, [])
 
   const loadOrgUnits = async () => {
     try {
@@ -25,6 +30,15 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
       setOrgUnits(response.data || [])
     } catch (error) {
       console.error('Error loading org units:', error)
+    }
+  }
+
+  const loadTechnologies = async () => {
+    try {
+      const response = await api.get('/technologies').catch(() => ({ data: [] }))
+      setTechnologies(response.data || [])
+    } catch (error) {
+      console.error('Error loading technologies:', error)
     }
   }
 
@@ -53,6 +67,15 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
     if (formData.target_trl && (formData.target_trl < 1 || formData.target_trl > 9)) newErrors.target_trl = 'Target TRL must be between 1 and 9'
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
+  }
+
+  const handleTechnologyChange = (e) => {
+    const selectedId = parseInt(e.target.value)
+    if (selectedId) {
+      setFormData(prev => ({ ...prev, technology_ids: [selectedId] }))
+    } else {
+      setFormData(prev => ({ ...prev, technology_ids: [] }))
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -156,6 +179,24 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
               </label>
             ))}
           </div>
+        </div>
+      )}
+
+      {technologies.length > 0 && (
+        <div>
+          <label htmlFor="technology" className="form-label">Technology Domain</label>
+          <select
+            id="technology"
+            value={formData.technology_ids.length > 0 ? formData.technology_ids[0] : ''}
+            onChange={handleTechnologyChange}
+            className="input"
+          >
+            <option value="">— Select a technology —</option>
+            {technologies.map((tech) => (
+              <option key={tech.id} value={tech.id}>{tech.name}</option>
+            ))}
+          </select>
+          <p className="text-xs text-gray-400 mt-1">Assign this project to a technology domain</p>
         </div>
       )}
 

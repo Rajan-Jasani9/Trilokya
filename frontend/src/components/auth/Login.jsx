@@ -20,7 +20,7 @@ const Login = () => {
     try {
       const response = await login(username, password)
       setAuthUser(response.user || { username })
-      navigate('/app/dashboard')
+      navigate('/app/technologies')
     } catch (err) {
       setError(err.response?.data?.detail || 'Login failed. Please check your credentials.')
     } finally {

@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage'
 import Login from './components/auth/Login'
 import ProtectedRoute from './components/auth/ProtectedRoute'
 import Layout from './components/common/Layout'
+import TechnologiesPage from './pages/TechnologiesPage'
 import Dashboard from './pages/Dashboard'
 import ProjectsPage from './pages/ProjectsPage'
 import CTEsPage from './pages/CTEsPage'
@@ -28,7 +29,8 @@ function App() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<Navigate to="/app/dashboard" replace />} />
+            <Route index element={<Navigate to="/app/technologies" replace />} />
+            <Route path="technologies" element={<TechnologiesPage />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="projects" element={<ProjectsPage />} />
             <Route path="ctes" element={<CTEsPage />} />

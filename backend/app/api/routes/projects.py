@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 from app.database import get_db
-from app.models import Project, ProjectOrgUnit, ProjectMember, ProjectTRLOverride
+from app.models import Project, ProjectOrgUnit, ProjectMember, ProjectTechnology, ProjectTRLOverride
 from app.schemas.project import ProjectCreate, ProjectUpdate, ProjectResponse, ProjectMemberCreate, ProjectTRLOverrideCreate
 from app.api.deps import get_current_active_user, require_minimum_role_level, check_project_access
 from app.core.permissions import get_user_highest_role_level
@@ -55,6 +55,8 @@ async def list_projects(
         computed_target_trl = compute_project_target_trl(db, project.id)
         if computed_target_trl is not None:
             project.target_trl = computed_target_trl
+        # Include technology IDs
+        project.technology_ids = [pt.technology_id for pt in project.technologies]
     
     return projects
 
@@ -91,9 +93,17 @@ async def create_project(
     for org_unit_id in project_data.org_unit_ids:
         project_org = ProjectOrgUnit(project_id=project.id, org_unit_id=org_unit_id)
         db.add(project_org)
+
+    # Add technologies
+    for tech_id in project_data.technology_ids:
+        project_tech = ProjectTechnology(project_id=project.id, technology_id=tech_id)
+        db.add(project_tech)
     
     db.commit()
     db.refresh(project)
+
+    # Populate response fields
+    project.technology_ids = [pt.technology_id for pt in project.technologies]
     return project
 
 
@@ -117,6 +127,10 @@ async def get_project(
     # Get org unit IDs
     org_units = db.query(ProjectOrgUnit).filter(ProjectOrgUnit.project_id == project_id).all()
     project.org_unit_ids = [ou.org_unit_id for ou in org_units]
+
+    # Get technology IDs
+    techs = db.query(ProjectTechnology).filter(ProjectTechnology.project_id == project_id).all()
+    project.technology_ids = [t.technology_id for t in techs]
     
     # Include members in response
     members = db.query(ProjectMember).filter(ProjectMember.project_id == project_id).all()
@@ -161,6 +175,29 @@ async def get_project(
     return project
 
 
+@router.delete("/{project_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_project(
+    project_id: int,
+    db: Session = Depends(get_db),
+    current_user = Depends(require_minimum_role_level(4)),  # Manager or SuperAdmin
+):
+    """Delete a project and all related CTEs, members, and assessments (cascade)."""
+    from app.api.deps import check_project_access
+
+    await check_project_access(project_id)(current_user=current_user, db=db)
+
+    project = db.query(Project).filter(Project.id == project_id).first()
+    if not project:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Project not found",
+        )
+
+    db.delete(project)
+    db.commit()
+    return None
+
+
 @router.patch("/{project_id}", response_model=ProjectResponse)
 async def update_project(
     project_id: int,
@@ -181,6 +218,7 @@ async def update_project(
     
     update_data = project_data.dict(exclude_unset=True)
     org_unit_ids = update_data.pop("org_unit_ids", None)
+    technology_ids = update_data.pop("technology_ids", None)
     
     for field, value in update_data.items():
         setattr(project, field, value)
@@ -191,6 +229,13 @@ async def update_project(
         for org_unit_id in org_unit_ids:
             project_org = ProjectOrgUnit(project_id=project_id, org_unit_id=org_unit_id)
             db.add(project_org)
+
+    if technology_ids is not None:
+        # Update technologies
+        db.query(ProjectTechnology).filter(ProjectTechnology.project_id == project_id).delete()
+        for tech_id in technology_ids:
+            project_tech = ProjectTechnology(project_id=project_id, technology_id=tech_id)
+            db.add(project_tech)
     
     db.commit()
     db.refresh(project)
@@ -206,6 +251,10 @@ async def update_project(
     # Get org unit IDs for response
     org_units = db.query(ProjectOrgUnit).filter(ProjectOrgUnit.project_id == project_id).all()
     project.org_unit_ids = [ou.org_unit_id for ou in org_units]
+
+    # Get technology IDs for response
+    techs = db.query(ProjectTechnology).filter(ProjectTechnology.project_id == project_id).all()
+    project.technology_ids = [t.technology_id for t in techs]
     
     return project
 

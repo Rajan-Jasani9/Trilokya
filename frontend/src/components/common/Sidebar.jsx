@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { FiX, FiHome, FiFolder, FiCheckSquare, FiSettings, FiUsers } from 'react-icons/fi'
+import { FiX, FiHome, FiGrid, FiFolder, FiCheckSquare, FiSettings, FiUsers } from 'react-icons/fi'
 import { useAuth } from '../../context/AuthContext'
 
 const Sidebar = ({ isOpen, onClose }) => {
@@ -8,6 +8,7 @@ const Sidebar = ({ isOpen, onClose }) => {
   const { user } = useAuth()
 
   const menuItems = [
+    { path: '/app/technologies', label: 'Technologies', icon: FiGrid },
     { path: '/app/dashboard', label: 'Dashboard', icon: FiHome },
     { path: '/app/projects', label: 'Projects', icon: FiFolder },
     { path: '/app/ctes', label: 'CTEs', icon: FiCheckSquare },

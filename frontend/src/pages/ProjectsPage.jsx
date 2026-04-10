@@ -41,6 +41,18 @@ const ProjectsPage = () => {
   const handleEditProject = (project) => { setEditingProject(project); setSelectedProject(null) }
   const handleAssignMembers = (project) => { setProjectForMembers(project); setShowAssignMembersModal(true) }
 
+  const handleDeleteProject = async (project) => {
+    if (!window.confirm(`Delete project "${project.name}" (${project.code})? This cannot be undone.`)) return
+    try {
+      await api.delete(`/projects/${project.id}`)
+      if (selectedProject?.id === project.id) setSelectedProject(null)
+      setRefreshTrigger((p) => p + 1)
+    } catch (error) {
+      console.error('Error deleting project:', error)
+      alert(error.response?.data?.detail || 'Failed to delete project')
+    }
+  }
+
   if (selectedProject && !editingProject) {
     return (
       <>
@@ -50,6 +62,7 @@ const ProjectsPage = () => {
           onEdit={(project) => setEditingProject(project)}
           onAddCTE={() => setShowCTEModal(true)}
           refreshTrigger={cteRefreshTrigger}
+          onProjectDeleted={() => { handleBackToList(); setRefreshTrigger((p) => p + 1) }}
         />
         <Modal isOpen={showCTEModal} onClose={() => setShowCTEModal(false)} title="Create New CTE" size="md">
           <CTEForm
@@ -91,6 +104,7 @@ const ProjectsPage = () => {
         onCreateProject={handleCreateProject}
         onEditProject={handleEditProject}
         onAssignMembers={handleAssignMembers}
+        onDeleteProject={handleDeleteProject}
         refreshTrigger={refreshTrigger}
       />
       <Modal isOpen={showCreateModal} onClose={() => setShowCreateModal(false)} title="Create New Project" size="lg">

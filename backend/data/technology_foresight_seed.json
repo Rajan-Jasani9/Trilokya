@@ -1,0 +1,2922 @@
+{
+  "meta": {
+    "title": "DRDO Technology Foresight seed",
+    "source_url": "https://drdo.gov.in/drdo/en/offerings/technology-foresight",
+    "notes": "Domains are aligned with the public Technology Foresight listing plus additional technology rows that match init_technologies.py (e.g. Fibre Optics, Naval Systems). Project titles and participating labs are representative—not extracted from detail PDFs on the website. Enrich org_unit_codes and descriptions from official documents.",
+    "version": "1.0",
+    "generated_for_schema": {
+      "org_units": "org_units",
+      "technologies": "technologies (resolve by technology_name)",
+      "projects": "projects",
+      "project_technologies": "project_technologies",
+      "project_org_units": "project_org_units",
+      "ctes": "ctes"
+    }
+  },
+  "org_units": [
+    {
+      "code": "DRDO-HQ",
+      "name": "DRDO Headquarters",
+      "org_type": "Directorate"
+    },
+    {
+      "code": "ADA",
+      "name": "Aeronautical Development Agency",
+      "org_type": "Lab"
+    },
+    {
+      "code": "ADE",
+      "name": "Aeronautical Development Establishment",
+      "org_type": "Lab"
+    },
+    {
+      "code": "ARDE",
+      "name": "Armament Research & Development Establishment",
+      "org_type": "Lab"
+    },
+    {
+      "code": "ASL",
+      "name": "Advanced Systems Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "ASTE",
+      "name": "Aeronautical Test Range / ASTE",
+      "org_type": "Lab"
+    },
+    {
+      "code": "CAIR",
+      "name": "Centre for Artificial Intelligence & Robotics",
+      "org_type": "Lab"
+    },
+    {
+      "code": "CABS",
+      "name": "Centre for Airborne Systems",
+      "org_type": "Lab"
+    },
+    {
+      "code": "CASDE",
+      "name": "Centre for Advanced Systems & DE",
+      "org_type": "Lab"
+    },
+    {
+      "code": "CHESS",
+      "name": "Centre for High Energy Systems & Sciences",
+      "org_type": "Lab"
+    },
+    {
+      "code": "CFEES",
+      "name": "Centre for Fire Explosive & Environment Safety",
+      "org_type": "Lab"
+    },
+    {
+      "code": "TBRL",
+      "name": "Terminal Ballistics Research Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "DEAL",
+      "name": "Defence Electronics Applications Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "DEBEL",
+      "name": "Defence Bioengineering & Electromedical Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "DIPAS",
+      "name": "Defence Institute of Physiology & Allied Sciences",
+      "org_type": "Lab"
+    },
+    {
+      "code": "DL",
+      "name": "Defence Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "DLJ",
+      "name": "Defence Laboratory Jodhpur",
+      "org_type": "Lab"
+    },
+    {
+      "code": "DMRL",
+      "name": "Defence Metallurgical Research Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "DMSRDE",
+      "name": "Defence Materials & Stores Research & Development Establishment",
+      "org_type": "Lab"
+    },
+    {
+      "code": "DRDL",
+      "name": "Defence Research & Development Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "GTRE",
+      "name": "Gas Turbine Research Establishment",
+      "org_type": "Lab"
+    },
+    {
+      "code": "HEMRL",
+      "name": "High Energy Materials Research Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "INMAS",
+      "name": "Institute of Nuclear Medicine & Allied Sciences",
+      "org_type": "Lab"
+    },
+    {
+      "code": "IRDE",
+      "name": "Instruments Research & Development Establishment",
+      "org_type": "Lab"
+    },
+    {
+      "code": "ISSA",
+      "name": "Integrated Systems & Solutions Agency",
+      "org_type": "Lab"
+    },
+    {
+      "code": "ITTL",
+      "name": "Institute of Technology Management",
+      "org_type": "Lab"
+    },
+    {
+      "code": "LASTEC",
+      "name": "Laser Science & Technology Centre",
+      "org_type": "Lab"
+    },
+    {
+      "code": "LRDE",
+      "name": "Electronics & Radar Development Establishment",
+      "org_type": "Lab"
+    },
+    {
+      "code": "NPOL",
+      "name": "Naval Physical & Oceanographic Laboratory",
+      "org_type": "Lab"
+    },
+    {
+      "code": "RCI",
+      "name": "Research Centre Imarat",
+      "org_type": "Lab"
+    }
+  ],
+  "programmes": [
+    {
+      "technology_name": "Additive Manufacturing",
+      "foresight_source_label": "Additive Manufacturing",
+      "project": {
+        "code": "PRJ-TF-001",
+        "name": "Additive Manufacturing: Development programme",
+        "description": "Development programme — additive manufacturing for defence",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DMRL",
+          "ADA"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-001-01",
+          "name": "Powder and feedstock qualification",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-001-02",
+          "name": "Process control and NDT integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Aero Structures",
+      "foresight_source_label": "Aero Structures",
+      "project": {
+        "code": "PRJ-TF-002",
+        "name": "Aero Structures: Integrated aero structures development",
+        "description": "Integrated aero structures development",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ADA",
+          "ADE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-002-01",
+          "name": "Structural design and analysis",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-002-02",
+          "name": "Full-scale test and certification",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Aerodynamics",
+      "foresight_source_label": "Aerodynamics",
+      "project": {
+        "code": "PRJ-TF-003",
+        "name": "Aerodynamics: Aerodynamics research and tool-chain maturation",
+        "description": "Aerodynamics research and tool-chain maturation",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ADE",
+          "ASTE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-003-01",
+          "name": "Wind tunnel and CFD correlation",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-003-02",
+          "name": "Flight-data validation",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Aeromechanical Systems",
+      "foresight_source_label": "Aeromechanical Systems",
+      "project": {
+        "code": "PRJ-TF-004",
+        "name": "Aeromechanical Systems: Aeromechanical systems engineering programme",
+        "description": "Aeromechanical systems engineering programme",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ADE",
+          "GTRE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-004-01",
+          "name": "Rotor/propulsion aero-mechanical integration",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-004-02",
+          "name": "Health monitoring and loads",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Agro Technology for Military Support in High Altitude Areas",
+      "foresight_source_label": "Agro Technology for Military Support in High Altitude Areas",
+      "project": {
+        "code": "PRJ-TF-005",
+        "name": "Agro Technology for Military Support in High Altitude Areas: High-altitude agro-tech for military logistics",
+        "description": "High-altitude agro-tech for military logistics",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DIPAS",
+          "DLJ"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-005-01",
+          "name": "Protected cultivation systems",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-005-02",
+          "name": "Nutrition and preservation chain",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "AI/ML Technology",
+      "foresight_source_label": "AI/ML Technology",
+      "project": {
+        "code": "PRJ-TF-006",
+        "name": "AI/ML Technology: AI/ML platforms for defence applications",
+        "description": "AI/ML platforms for defence applications",
+        "category": "AI",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CAIR",
+          "RCI"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-006-01",
+          "name": "Model lifecycle and governance",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-006-02",
+          "name": "Edge deployment and assurance",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Alternative Power Plant",
+      "foresight_source_label": "Alternative Power Plant",
+      "project": {
+        "code": "PRJ-TF-007",
+        "name": "Alternative Power Plant: Alternative power plant technology maturation",
+        "description": "Alternative power plant technology maturation",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "GTRE",
+          "DMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-007-01",
+          "name": "System architecture and safety case",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-007-02",
+          "name": "Qualification tests",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Antennas",
+      "foresight_source_label": "Antennas",
+      "project": {
+        "code": "PRJ-TF-008",
+        "name": "Antennas: Advanced antenna systems programme",
+        "description": "Advanced antenna systems programme",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-008-01",
+          "name": "Aperture and feed design",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-008-02",
+          "name": "EMC and environmental qualification",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Armoured & Combat Vehicles",
+      "foresight_source_label": "Armoured & Combat Vehicles",
+      "project": {
+        "code": "PRJ-TF-009",
+        "name": "Armoured & Combat Vehicles: Armoured vehicle systems development",
+        "description": "Armoured vehicle systems development",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "DMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-009-01",
+          "name": "Protection and survivability",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-009-02",
+          "name": "Mobility and automotive integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Autonomous Systems and Robotics",
+      "foresight_source_label": "Autonomous Systems and Robotics",
+      "project": {
+        "code": "PRJ-TF-010",
+        "name": "Autonomous Systems and Robotics: Autonomous and robotic platforms programme",
+        "description": "Autonomous and robotic platforms programme",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CAIR",
+          "ASL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-010-01",
+          "name": "Autonomy stack and safety",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-010-02",
+          "name": "Mission integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Behavioural Analysis for Soldiers",
+      "foresight_source_label": "Behavioural Analysis for Soldiers",
+      "project": {
+        "code": "PRJ-TF-011",
+        "name": "Behavioural Analysis for Soldiers: Behavioural and cognitive support R&D",
+        "description": "Behavioural and cognitive support R&D",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DIPAS",
+          "DEBEL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-011-01",
+          "name": "Measurement and modelling",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-011-02",
+          "name": "Training and intervention tools",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Bio Defence",
+      "foresight_source_label": "Bio Defence",
+      "project": {
+        "code": "PRJ-TF-012",
+        "name": "Bio Defence: Biological defence systems programme",
+        "description": "Biological defence systems programme",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DEBEL",
+          "INMAS"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-012-01",
+          "name": "Detection and identification",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-012-02",
+          "name": "Protection and decontamination",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Bio Remediation",
+      "foresight_source_label": "Bio Remediation",
+      "project": {
+        "code": "PRJ-TF-013",
+        "name": "Bio Remediation: Environmental bio-remediation for defence sites",
+        "description": "Environmental bio-remediation for defence sites",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DL",
+          "CFEES"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-013-01",
+          "name": "Remediation process design",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-013-02",
+          "name": "Field validation",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Biomedical Engineering & Technologies",
+      "foresight_source_label": "Biomedical Engineering & Technologies",
+      "project": {
+        "code": "PRJ-TF-014",
+        "name": "Biomedical Engineering & Technologies: Biomedical devices and soldier health tech",
+        "description": "Biomedical devices and soldier health tech",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DEBEL",
+          "INMAS"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-014-01",
+          "name": "Device design and trials",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-014-02",
+          "name": "Regulatory and safety pathway",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "C4ISR",
+      "foresight_source_label": "C4ISR",
+      "project": {
+        "code": "PRJ-TF-015",
+        "name": "C4ISR: C4ISR architecture and integration programme",
+        "description": "C4ISR architecture and integration programme",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-015-01",
+          "name": "Architecture and interoperability",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-015-02",
+          "name": "Field trials and hardening",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Camouflage Technology",
+      "foresight_source_label": "Camouflage Technology",
+      "project": {
+        "code": "PRJ-TF-016",
+        "name": "Camouflage Technology: Signature management and camouflage",
+        "description": "Signature management and camouflage",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DLJ",
+          "DMSRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-016-01",
+          "name": "Material systems development",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-016-02",
+          "name": "Signature measurement",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "CBRN Defence",
+      "foresight_source_label": "CBRN Defence",
+      "project": {
+        "code": "PRJ-TF-017",
+        "name": "CBRN Defence: CBRN defence equipment and doctrine support",
+        "description": "CBRN defence equipment and doctrine support",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CFEES",
+          "DEBEL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-017-01",
+          "name": "Detection and PPE",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-017-02",
+          "name": "Decontamination systems",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Communication",
+      "foresight_source_label": "Communication",
+      "project": {
+        "code": "PRJ-TF-018",
+        "name": "Communication: Strategic and tactical communication systems",
+        "description": "Strategic and tactical communication systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DEAL",
+          "LRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-018-01",
+          "name": "Waveforms and terminals",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-018-02",
+          "name": "Network security integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Control Systems",
+      "foresight_source_label": "Control Systems",
+      "project": {
+        "code": "PRJ-TF-019",
+        "name": "Control Systems: Control systems for weapons and platforms",
+        "description": "Control systems for weapons and platforms",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "RCI",
+          "ASL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-019-01",
+          "name": "Guidance and control laws",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-019-02",
+          "name": "HW/SW integration and V&V",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Counter Swarm Technology",
+      "foresight_source_label": "Counter Swarm Technology",
+      "project": {
+        "code": "PRJ-TF-020",
+        "name": "Counter Swarm Technology: Counter-swarm detection and defeat",
+        "description": "Counter-swarm detection and defeat",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "ADE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-020-01",
+          "name": "Sensor fusion and tracking",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-020-02",
+          "name": "Effector integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Cyber, Information & Communication Security",
+      "foresight_source_label": "Cyber, Information & Communication Security",
+      "project": {
+        "code": "PRJ-TF-021",
+        "name": "Cyber, Information & Communication Security: Cyber and information security programme",
+        "description": "Cyber and information security programme",
+        "category": "Software",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CAIR",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-021-01",
+          "name": "Zero-trust architecture rollout",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-021-02",
+          "name": "Continuous monitoring",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Decoys",
+      "foresight_source_label": "Decoys",
+      "project": {
+        "code": "PRJ-TF-022",
+        "name": "Decoys: Expendable decoy and countermeasure systems",
+        "description": "Expendable decoy and countermeasure systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "DRDL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-022-01",
+          "name": "Payload and kinematics",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-022-02",
+          "name": "Operational testing",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Detonics & Mechanisms",
+      "foresight_source_label": "Detonics & Mechanisms",
+      "project": {
+        "code": "PRJ-TF-023",
+        "name": "Detonics & Mechanisms: Fuzing and detonics mechanisms",
+        "description": "Fuzing and detonics mechanisms",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "HEMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-023-01",
+          "name": "Initiation safety",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-023-02",
+          "name": "Reliability qualification",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Diesel Engine",
+      "foresight_source_label": "Diesel Engine",
+      "project": {
+        "code": "PRJ-TF-024",
+        "name": "Diesel Engine: High-performance diesel propulsion",
+        "description": "High-performance diesel propulsion",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "GTRE",
+          "ARDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-024-01",
+          "name": "Combustion and emissions",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-024-02",
+          "name": "Durability programme",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Electric Power Technology",
+      "foresight_source_label": "Electric Power Technology",
+      "project": {
+        "code": "PRJ-TF-025",
+        "name": "Electric Power Technology: Electric power and energy management",
+        "description": "Electric power and energy management",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "GTRE",
+          "DMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-025-01",
+          "name": "Power electronics stack",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-025-02",
+          "name": "Thermal and EMI management",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Electro Optics",
+      "foresight_source_label": "Electro Optics",
+      "project": {
+        "code": "PRJ-TF-026",
+        "name": "Electro Optics: Electro-optical sensors and laser systems",
+        "description": "Electro-optical sensors and laser systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "IRDE",
+          "LASTEC"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-026-01",
+          "name": "Sensor core development",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-026-02",
+          "name": "Environmental qualification",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Electronic Devices",
+      "foresight_source_label": "Electronic Devices",
+      "project": {
+        "code": "PRJ-TF-027",
+        "name": "Electronic Devices: Microelectronics and RF devices",
+        "description": "Microelectronics and RF devices",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DEAL",
+          "LRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-027-01",
+          "name": "Device characterisation",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-027-02",
+          "name": "Packaging and reliability",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Electronic Warfare",
+      "foresight_source_label": "Electronic Warfare",
+      "project": {
+        "code": "PRJ-TF-028",
+        "name": "Electronic Warfare: EW systems development and integration",
+        "description": "EW systems development and integration",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-028-01",
+          "name": "EW receiver/exciter chain",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-028-02",
+          "name": "Platform integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "EM Rail Gun",
+      "foresight_source_label": "EM Rail Gun",
+      "project": {
+        "code": "PRJ-TF-029",
+        "name": "EM Rail Gun: Electromagnetic launch technology",
+        "description": "Electromagnetic launch technology",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "HEMRL",
+          "ARDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-029-01",
+          "name": "Pulsed power architecture",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-029-02",
+          "name": "Barrel and materials",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Embedded Systems",
+      "foresight_source_label": "Embedded Systems",
+      "project": {
+        "code": "PRJ-TF-030",
+        "name": "Embedded Systems: Real-time embedded computing for weapons",
+        "description": "Real-time embedded computing for weapons",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "RCI",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-030-01",
+          "name": "Safety-critical firmware",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-030-02",
+          "name": "Certification evidence",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Energy",
+      "foresight_source_label": "Energy",
+      "project": {
+        "code": "PRJ-TF-031",
+        "name": "Energy: Energy storage and conversion for defence",
+        "description": "Energy storage and conversion for defence",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DMRL",
+          "HEMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-031-01",
+          "name": "Cell and pack engineering",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-031-02",
+          "name": "Safety and BMS",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Environment Protection",
+      "foresight_source_label": "Environment Protection",
+      "project": {
+        "code": "PRJ-TF-032",
+        "name": "Environment Protection: Environmental protection and compliance",
+        "description": "Environmental protection and compliance",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DL",
+          "CFEES"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-032-01",
+          "name": "Monitoring systems",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-032-02",
+          "name": "Remediation integration",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Environmental Testing",
+      "foresight_source_label": "Environmental Testing",
+      "project": {
+        "code": "PRJ-TF-033",
+        "name": "Environmental Testing: Environmental test infrastructure and methods",
+        "description": "Environmental test infrastructure and methods",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ASTE",
+          "ADE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-033-01",
+          "name": "Test specifications",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-033-02",
+          "name": "Correlation with field data",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Fire Fighting",
+      "foresight_source_label": "Fire Fighting",
+      "project": {
+        "code": "PRJ-TF-034",
+        "name": "Fire Fighting: Fire suppression for platforms and facilities",
+        "description": "Fire suppression for platforms and facilities",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CFEES",
+          "ARDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-034-01",
+          "name": "Agent and delivery systems",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-034-02",
+          "name": "Certification for platforms",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Guidance & Navigation",
+      "foresight_source_label": "Guidance & Navigation",
+      "project": {
+        "code": "PRJ-TF-035",
+        "name": "Guidance & Navigation: Guidance and navigation sensor suite",
+        "description": "Guidance and navigation sensor suite",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "RCI",
+          "ASL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-035-01",
+          "name": "INS/GNSS fusion",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-035-02",
+          "name": "Redundancy and integrity",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Guided Artillery",
+      "foresight_source_label": "Guided Artillery",
+      "project": {
+        "code": "PRJ-TF-036",
+        "name": "Guided Artillery: Guided artillery munitions programme",
+        "description": "Guided artillery munitions programme",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "RCI"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-036-01",
+          "name": "Guidance section development",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-036-02",
+          "name": "Ballistic qualification",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Gun Technology",
+      "foresight_source_label": "Gun Technology",
+      "project": {
+        "code": "PRJ-TF-037",
+        "name": "Gun Technology: Large and medium calibre gun systems",
+        "description": "Large and medium calibre gun systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "DMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-037-01",
+          "name": "Interior ballistics",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-037-02",
+          "name": "Recoil and structures",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Hardware In Loop Simulation",
+      "foresight_source_label": "Hardware In Loop Simulation",
+      "project": {
+        "code": "PRJ-TF-038",
+        "name": "Hardware In Loop Simulation: HIL simulation infrastructure",
+        "description": "HIL simulation infrastructure",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "RCI",
+          "ADE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-038-01",
+          "name": "Plant models and interfaces",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-038-02",
+          "name": "Scenario libraries",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "High Performance Computing",
+      "foresight_source_label": "High Performance Computing",
+      "project": {
+        "code": "PRJ-TF-039",
+        "name": "High Performance Computing: HPC for defence R&D workloads",
+        "description": "HPC for defence R&D workloads",
+        "category": "Software",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CAIR",
+          "ISSA"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-039-01",
+          "name": "Cluster architecture",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-039-02",
+          "name": "Workload orchestration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Hydro Structures",
+      "foresight_source_label": "Hydro Structures",
+      "project": {
+        "code": "PRJ-TF-040",
+        "name": "Hydro Structures: Hydro structures and coastal engineering",
+        "description": "Hydro structures and coastal engineering",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "NPOL",
+          "DMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-040-01",
+          "name": "Structural design methods",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-040-02",
+          "name": "Instrumentation",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Hypersonic Technologies",
+      "foresight_source_label": "Hypersonic Technologies",
+      "project": {
+        "code": "PRJ-TF-041",
+        "name": "Hypersonic Technologies: Hypersonic vehicle technologies",
+        "description": "Hypersonic vehicle technologies",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DRDL",
+          "ADE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-041-01",
+          "name": "Aero-thermal experiments",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-041-02",
+          "name": "Materials and TPS",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Life Support",
+      "foresight_source_label": "Life Support",
+      "project": {
+        "code": "PRJ-TF-042",
+        "name": "Life Support: Life support and environmental control",
+        "description": "Life support and environmental control",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DEBEL",
+          "DIPAS"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-042-01",
+          "name": "Breathing and thermal systems",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-042-02",
+          "name": "Human trials and certification",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Materials",
+      "foresight_source_label": "Materials",
+      "project": {
+        "code": "PRJ-TF-043",
+        "name": "Materials: Advanced materials and metallurgy",
+        "description": "Advanced materials and metallurgy",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DMRL",
+          "DMSRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-043-01",
+          "name": "Alloy development",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-043-02",
+          "name": "Processing scale-up",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Military Food Technology",
+      "foresight_source_label": "Military Food Technology",
+      "project": {
+        "code": "PRJ-TF-044",
+        "name": "Military Food Technology: Operational ration and food tech",
+        "description": "Operational ration and food tech",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DIPAS",
+          "DEBEL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-044-01",
+          "name": "Formulation and shelf life",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-044-02",
+          "name": "Field acceptance trials",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Mines & Mines Detection",
+      "foresight_source_label": "Mines & Mines Detection",
+      "project": {
+        "code": "PRJ-TF-045",
+        "name": "Mines & Mines Detection: Mine systems and detection technology",
+        "description": "Mine systems and detection technology",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "IRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-045-01",
+          "name": "Sensor modalities",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-045-02",
+          "name": "Clearance robotics",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Missile Systems",
+      "foresight_source_label": "Missile Systems",
+      "project": {
+        "code": "PRJ-TF-046",
+        "name": "Missile Systems: Guided weapons and missile programmes",
+        "description": "Guided weapons and missile programmes",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DRDL",
+          "RCI"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-046-01",
+          "name": "Seeker and guidance",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-046-02",
+          "name": "Propulsion integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Multi-Barrel Rockets",
+      "foresight_source_label": "Multi-Barrel Rockets",
+      "project": {
+        "code": "PRJ-TF-047",
+        "name": "Multi-Barrel Rockets: Rocket artillery systems",
+        "description": "Rocket artillery systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "HEMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-047-01",
+          "name": "Launcher mechanics",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-047-02",
+          "name": "Ballistic dispersion control",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Explosives & Pyrotechnics",
+      "foresight_source_label": "Explosives & Pyrotechnics",
+      "project": {
+        "code": "PRJ-TF-048",
+        "name": "Explosives & Pyrotechnics: Munition energetics and pyrotechnics",
+        "description": "Munition energetics and pyrotechnics",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "HEMRL",
+          "ARDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-048-01",
+          "name": "Formulation safety",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-048-02",
+          "name": "Production scale-up",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Natural Hazard Management",
+      "foresight_source_label": "Natural Hazard Management",
+      "project": {
+        "code": "PRJ-TF-049",
+        "name": "Natural Hazard Management: Natural hazard early warning and mitigation",
+        "description": "Natural hazard early warning and mitigation",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DEAL",
+          "DL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-049-01",
+          "name": "Sensor networks",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-049-02",
+          "name": "Decision support",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Non Destructive Evaluation",
+      "foresight_source_label": "Non Destructive Evaluation",
+      "project": {
+        "code": "PRJ-TF-050",
+        "name": "Non Destructive Evaluation: NDE methods for defence hardware",
+        "description": "NDE methods for defence hardware",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DMRL",
+          "IRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-050-01",
+          "name": "Modalities and standards",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-050-02",
+          "name": "Automation and AI assist",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Ocean Profiling",
+      "foresight_source_label": "Ocean Profiling",
+      "project": {
+        "code": "PRJ-TF-051",
+        "name": "Ocean Profiling: Oceanographic sensors and profiling",
+        "description": "Oceanographic sensors and profiling",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "NPOL",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-051-01",
+          "name": "Sensor payloads",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-051-02",
+          "name": "Data assimilation",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Parachute Technology",
+      "foresight_source_label": "Parachute Technology",
+      "project": {
+        "code": "PRJ-TF-052",
+        "name": "Parachute Technology: Parachute and aerial delivery systems",
+        "description": "Parachute and aerial delivery systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "ADE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-052-01",
+          "name": "Canopy materials",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-052-02",
+          "name": "Deployment dynamics",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Passive Countermeasures",
+      "foresight_source_label": "Passive Countermeasures",
+      "project": {
+        "code": "PRJ-TF-053",
+        "name": "Passive Countermeasures: Passive countermeasure systems",
+        "description": "Passive countermeasure systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DLJ",
+          "LASTEC"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-053-01",
+          "name": "Signature materials",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-053-02",
+          "name": "Dispenser integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Propulsion Technologies",
+      "foresight_source_label": "Propulsion Technologies",
+      "project": {
+        "code": "PRJ-TF-054",
+        "name": "Propulsion Technologies: Air and missile propulsion",
+        "description": "Air and missile propulsion",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "GTRE",
+          "DRDL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-054-01",
+          "name": "Combustor development",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-054-02",
+          "name": "Thrust vectoring",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Protective Clothing & Gears",
+      "foresight_source_label": "Protective Clothing & Gears",
+      "project": {
+        "code": "PRJ-TF-055",
+        "name": "Protective Clothing & Gears: Protective textiles and PPE",
+        "description": "Protective textiles and PPE",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DMSRDE",
+          "DEBEL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-055-01",
+          "name": "Material barrier performance",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-055-02",
+          "name": "Human factors trials",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Quantum Technologies",
+      "foresight_source_label": "Quantum Technologies",
+      "project": {
+        "code": "PRJ-TF-056",
+        "name": "Quantum Technologies: Quantum sensing and communication R&D",
+        "description": "Quantum sensing and communication R&D",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LASTEC",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-056-01",
+          "name": "Source and detector development",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        },
+        {
+          "code": "CTE-TF-056-02",
+          "name": "Cryogenic and control subsystems",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Radar",
+      "foresight_source_label": "Radar",
+      "project": {
+        "code": "PRJ-TF-057",
+        "name": "Radar: Radar systems engineering",
+        "description": "Radar systems engineering",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-057-01",
+          "name": "Antenna and exciter",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-057-02",
+          "name": "Signal processor",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Microwave Technologies",
+      "foresight_source_label": "Microwave Technologies",
+      "project": {
+        "code": "PRJ-TF-058",
+        "name": "Microwave Technologies: Microwave circuits and subsystems",
+        "description": "Microwave circuits and subsystems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-058-01",
+          "name": "MMIC integration",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-058-02",
+          "name": "Thermal and reliability",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Radome",
+      "foresight_source_label": "Radome",
+      "project": {
+        "code": "PRJ-TF-059",
+        "name": "Radome: Radome materials and RF transparency",
+        "description": "Radome materials and RF transparency",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "DMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-059-01",
+          "name": "Dielectric design",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-059-02",
+          "name": "Lightning and rain erosion",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Respiratory Management",
+      "foresight_source_label": "Respiratory Management",
+      "project": {
+        "code": "PRJ-TF-060",
+        "name": "Respiratory Management: Respiratory protection and management",
+        "description": "Respiratory protection and management",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DEBEL",
+          "INMAS"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-060-01",
+          "name": "Filtration performance",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-060-02",
+          "name": "Ergonomic certification",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Seeker",
+      "foresight_source_label": "Seeker",
+      "project": {
+        "code": "PRJ-TF-061",
+        "name": "Seeker: Precision seeker technology programme",
+        "description": "Precision seeker technology programme",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "IRDE",
+          "RCI"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-061-01",
+          "name": "Seeker front-end",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-061-02",
+          "name": "Tracker algorithms",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Sensors/Detectors",
+      "foresight_source_label": "Sensors/Detectors",
+      "project": {
+        "code": "PRJ-TF-062",
+        "name": "Sensors/Detectors: Multi-domain sensors and detectors",
+        "description": "Multi-domain sensors and detectors",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "IRDE",
+          "LRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-062-01",
+          "name": "Detector materials",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-062-02",
+          "name": "Fusion architecture",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Soldier Support",
+      "foresight_source_label": "Soldier Support",
+      "project": {
+        "code": "PRJ-TF-063",
+        "name": "Soldier Support: Soldier systems and load carriage",
+        "description": "Soldier systems and load carriage",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ARDE",
+          "DMSRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-063-01",
+          "name": "Human factors engineering",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-063-02",
+          "name": "Power and comms integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Sonar",
+      "foresight_source_label": "Sonar",
+      "project": {
+        "code": "PRJ-TF-064",
+        "name": "Sonar: Underwater sonar systems",
+        "description": "Underwater sonar systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "NPOL",
+          "DEAL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-064-01",
+          "name": "Transducer arrays",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-064-02",
+          "name": "Signal processing",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Space Situational Awareness",
+      "foresight_source_label": "Space Situational Awareness",
+      "project": {
+        "code": "PRJ-TF-065",
+        "name": "Space Situational Awareness: SSA sensors and data fusion",
+        "description": "SSA sensors and data fusion",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "ISSA"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-065-01",
+          "name": "Sensor tasking",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-065-02",
+          "name": "Catalogue maintenance",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Space Technologies",
+      "foresight_source_label": "Space Technologies",
+      "project": {
+        "code": "PRJ-TF-066",
+        "name": "Space Technologies: Space payloads and bus technologies",
+        "description": "Space payloads and bus technologies",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "RCI"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-066-01",
+          "name": "Payload engineering",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-066-02",
+          "name": "Environmental testing",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Surveillance and Tracking",
+      "foresight_source_label": "Surveillance and Tracking",
+      "project": {
+        "code": "PRJ-TF-067",
+        "name": "Surveillance and Tracking: Surveillance and target tracking systems",
+        "description": "Surveillance and target tracking systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LRDE",
+          "IRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-067-01",
+          "name": "Sensor suite integration",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-067-02",
+          "name": "C2 interfaces",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Swarm Technology",
+      "foresight_source_label": "Swarm Technology",
+      "project": {
+        "code": "PRJ-TF-068",
+        "name": "Swarm Technology: Swarm autonomy and coordination",
+        "description": "Swarm autonomy and coordination",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CAIR",
+          "ASL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-068-01",
+          "name": "Swarm algorithms",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-068-02",
+          "name": "Communications mesh",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Terahertz",
+      "foresight_source_label": "Terahertz",
+      "project": {
+        "code": "PRJ-TF-069",
+        "name": "Terahertz: Terahertz imaging and spectroscopy",
+        "description": "Terahertz imaging and spectroscopy",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "LASTEC",
+          "IRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-069-01",
+          "name": "Sources and detectors",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        },
+        {
+          "code": "CTE-TF-069-02",
+          "name": "System integration",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "UAV",
+      "foresight_source_label": "UAV",
+      "project": {
+        "code": "PRJ-TF-070",
+        "name": "UAV: Unmanned aerial vehicle programmes",
+        "description": "Unmanned aerial vehicle programmes",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ADE",
+          "CAIR"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-070-01",
+          "name": "Airframe and propulsion",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-070-02",
+          "name": "GCS and datalink",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "UGV",
+      "foresight_source_label": "UGV",
+      "project": {
+        "code": "PRJ-TF-071",
+        "name": "UGV: Unmanned ground vehicle programmes",
+        "description": "Unmanned ground vehicle programmes",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CAIR",
+          "ARDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-071-01",
+          "name": "Mobility and autonomy",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-071-02",
+          "name": "Weapon/sensor integration",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Underwater Defence Technologies",
+      "foresight_source_label": "Underwater Defence Technologies",
+      "project": {
+        "code": "PRJ-TF-072",
+        "name": "Underwater Defence Technologies: Underwater defence systems",
+        "description": "Underwater defence systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "NPOL",
+          "DRDL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-072-01",
+          "name": "Torpedo subsystems",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-072-02",
+          "name": "Countermeasure systems",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Wargaming",
+      "foresight_source_label": "Wargaming",
+      "project": {
+        "code": "PRJ-TF-073",
+        "name": "Wargaming: Wargaming and simulation for operations",
+        "description": "Wargaming and simulation for operations",
+        "category": "Software",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ISSA",
+          "ITTL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-073-01",
+          "name": "Scenario engine",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-073-02",
+          "name": "Analytics and after-action",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Warhead/Explosive & Ballistic Protection",
+      "foresight_source_label": "Warhead/Explosive & Ballistic Protection",
+      "project": {
+        "code": "PRJ-TF-074",
+        "name": "Warhead/Explosive & Ballistic Protection: Warhead and ballistic protection",
+        "description": "Warhead and ballistic protection",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "HEMRL",
+          "DMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-074-01",
+          "name": "Warhead mechanics",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-074-02",
+          "name": "Armour solutions",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Waste Management",
+      "foresight_source_label": "Waste Management",
+      "project": {
+        "code": "PRJ-TF-075",
+        "name": "Waste Management: Waste treatment for defence installations",
+        "description": "Waste treatment for defence installations",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "CFEES",
+          "DL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-075-01",
+          "name": "Treatment processes",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        },
+        {
+          "code": "CTE-TF-075-02",
+          "name": "Monitoring and compliance",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Fibre Optics & Photonics",
+      "foresight_source_label": "Fibre Optics & Photonics",
+      "project": {
+        "code": "PRJ-TF-076",
+        "name": "Fibre Optics & Photonics: Fibre and photonic subsystems",
+        "description": "Fibre and photonic subsystems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DEAL",
+          "LASTEC"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-076-01",
+          "name": "Link budget and BER",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-076-02",
+          "name": "Ruggedised packaging",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Flight Sciences",
+      "foresight_source_label": "Flight Sciences",
+      "project": {
+        "code": "PRJ-TF-077",
+        "name": "Flight Sciences: Flight sciences and flight testing",
+        "description": "Flight sciences and flight testing",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ADE",
+          "ASTE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-077-01",
+          "name": "Flight test instrumentation",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-077-02",
+          "name": "Data reduction methods",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Gas Turbine Engine",
+      "foresight_source_label": "Gas Turbine Engine",
+      "project": {
+        "code": "PRJ-TF-078",
+        "name": "Gas Turbine Engine: Gas turbine propulsion development",
+        "description": "Gas turbine propulsion development",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "GTRE",
+          "ADE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-078-01",
+          "name": "Core and hot section",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-078-02",
+          "name": "Controls and FADEC",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Life Sciences",
+      "foresight_source_label": "Life Sciences",
+      "project": {
+        "code": "PRJ-TF-079",
+        "name": "Life Sciences: Life sciences for human performance",
+        "description": "Life sciences for human performance",
+        "category": "Mixed",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DIPAS",
+          "DEBEL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-079-01",
+          "name": "Physiology studies",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-079-02",
+          "name": "Countermeasure biology",
+          "description": null,
+          "category": null,
+          "target_trl": 4
+        }
+      ]
+    },
+    {
+      "technology_name": "Naval Systems",
+      "foresight_source_label": "Naval Systems",
+      "project": {
+        "code": "PRJ-TF-080",
+        "name": "Naval Systems: Naval platform and combat systems",
+        "description": "Naval platform and combat systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "NPOL",
+          "DRDL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-080-01",
+          "name": "Combat management integration",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-080-02",
+          "name": "Hull signatures",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Night Vision Technology",
+      "foresight_source_label": "Night Vision Technology",
+      "project": {
+        "code": "PRJ-TF-081",
+        "name": "Night Vision Technology: Night vision and low-light imaging",
+        "description": "Night vision and low-light imaging",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "IRDE",
+          "LASTEC"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-081-01",
+          "name": "Image intensifier chain",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-081-02",
+          "name": "Fusion with thermal",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Nuclear Technology",
+      "foresight_source_label": "Nuclear Technology",
+      "project": {
+        "code": "PRJ-TF-082",
+        "name": "Nuclear Technology: Nuclear science applications for defence",
+        "description": "Nuclear science applications for defence",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "INMAS",
+          "HEMRL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-082-01",
+          "name": "Detection instrumentation",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-082-02",
+          "name": "Safety systems",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Simulation & Modelling",
+      "foresight_source_label": "Simulation & Modelling",
+      "project": {
+        "code": "PRJ-TF-083",
+        "name": "Simulation & Modelling: Simulation and digital modelling",
+        "description": "Simulation and digital modelling",
+        "category": "Software",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ISSA",
+          "ADE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-083-01",
+          "name": "Physics-based models",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-083-02",
+          "name": "Digital twin workflows",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Stealth Technology",
+      "foresight_source_label": "Stealth Technology",
+      "project": {
+        "code": "PRJ-TF-084",
+        "name": "Stealth Technology: Low-observable and stealth engineering",
+        "description": "Low-observable and stealth engineering",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "ADE",
+          "LRDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-084-01",
+          "name": "RCS management",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        },
+        {
+          "code": "CTE-TF-084-02",
+          "name": "Materials and coatings",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Textile & Special Materials",
+      "foresight_source_label": "Textile & Special Materials",
+      "project": {
+        "code": "PRJ-TF-085",
+        "name": "Textile & Special Materials: Ballistic textiles and special fabrics",
+        "description": "Ballistic textiles and special fabrics",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "DMSRDE",
+          "ARDE"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-085-01",
+          "name": "Yarn and weave optimisation",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-085-02",
+          "name": "Ballistic testing",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    },
+    {
+      "technology_name": "Underwater Weapons",
+      "foresight_source_label": "Underwater Weapons",
+      "project": {
+        "code": "PRJ-TF-086",
+        "name": "Underwater Weapons: Underwater weapon systems",
+        "description": "Underwater weapon systems",
+        "category": "Hardware",
+        "start_date": "2024-04-01",
+        "end_date": null,
+        "org_unit_codes": [
+          "NPOL",
+          "DRDL"
+        ]
+      },
+      "ctes": [
+        {
+          "code": "CTE-TF-086-01",
+          "name": "Propulsion hydrodynamics",
+          "description": null,
+          "category": null,
+          "target_trl": 6
+        },
+        {
+          "code": "CTE-TF-086-02",
+          "name": "Guidance in water",
+          "description": null,
+          "category": null,
+          "target_trl": 5
+        }
+      ]
+    }
+  ]
+}

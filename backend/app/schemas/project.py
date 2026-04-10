@@ -16,6 +16,7 @@ class ProjectBase(BaseModel):
 
 class ProjectCreate(ProjectBase):
     org_unit_ids: List[int] = []
+    technology_ids: List[int] = []
 
 
 class ProjectUpdate(BaseModel):
@@ -26,6 +27,7 @@ class ProjectUpdate(BaseModel):
     start_date: Optional[date] = None
     end_date: Optional[date] = None
     org_unit_ids: Optional[List[int]] = None
+    technology_ids: Optional[List[int]] = None
 
 
 class ProjectMemberCreate(BaseModel):
@@ -43,6 +45,7 @@ class ProjectResponse(ProjectBase):
     created_by: int
     created_at: datetime
     org_unit_ids: List[int] = []
+    technology_ids: List[int] = []
     current_trl: Optional[int] = None
     trl_overrides: Optional[List[dict]] = None
     members: Optional[List[dict]] = None
