@@ -4,8 +4,10 @@ import api from '../services/api'
 import LoadingSpinner from '../components/common/LoadingSpinner'
 import { getTechnologyAssetSrc } from '../utils/technologyAssets'
 import { FiFolder, FiTarget, FiArrowLeft, FiSearch, FiGrid, FiLayers } from 'react-icons/fi'
+import { useToast } from '../components/common/ToastProvider'
 
 const TechnologiesPage = () => {
+  const { showToast } = useToast()
   const [technologies, setTechnologies] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedTech, setSelectedTech] = useState(null)
@@ -24,6 +26,7 @@ const TechnologiesPage = () => {
       setTechnologies(response.data || [])
     } catch (error) {
       console.error('Error loading technologies:', error)
+      showToast('Failed to load technologies.', 'error')
     } finally {
       setLoading(false)
     }
@@ -38,6 +41,7 @@ const TechnologiesPage = () => {
     } catch (error) {
       console.error('Error loading projects for technology:', error)
       setTechProjects([])
+      showToast('Failed to load projects for selected technology.', 'error')
     } finally {
       setProjectsLoading(false)
     }
@@ -103,6 +107,9 @@ const TechnologiesPage = () => {
             </div>
             {techProjects.map((project) => {
               const currentTRL = project.current_trl || 0
+              const currentIRL = project.current_irl || 0
+              const currentMRL = project.current_mrl || 0
+              const currentSRL = project.current_srl || 0
               const targetTRL = project.target_trl || 0
               const progress = targetTRL > 0 ? Math.max(0, Math.min(100, (currentTRL / targetTRL) * 100)) : 0
               const gap = targetTRL - currentTRL
@@ -153,6 +160,7 @@ const TechnologiesPage = () => {
                         <div className={`px-3 py-1.5 rounded text-xs font-bold ${getTRLBadge(currentTRL)}`}>
                           TRL {currentTRL || 'N/A'}
                         </div>
+                        <p className="text-[10px] text-gray-500 mt-1">IRL {currentIRL} · MRL {currentMRL} · SRL {currentSRL}</p>
                         {gap > 0 && (
                           <p className="text-[10px] text-gray-400 mt-1">Gap: {gap}</p>
                         )}

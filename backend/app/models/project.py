@@ -34,6 +34,7 @@ class Project(Base):
     trl_overrides = relationship("ProjectTRLOverride", back_populates="project", cascade="all, delete-orphan")
     trl_assessments = relationship("ProjectTRLAssessment", back_populates="project", cascade="all, delete-orphan")
     technologies = relationship("ProjectTechnology", back_populates="project", cascade="all, delete-orphan")
+    readiness_config = relationship("ProjectReadinessConfig", back_populates="project", uselist=False, cascade="all, delete-orphan")
 
 
 class ProjectOrgUnit(Base):

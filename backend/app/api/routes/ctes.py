@@ -5,6 +5,7 @@ from app.database import get_db
 from app.models import CTE, Project
 from app.schemas.cte import CTECreate, CTEUpdate, CTEResponse
 from app.api.deps import get_current_active_user, check_project_access, require_minimum_role_level
+from app.core.readiness_engine import compute_cte_trl, compute_cte_irl, compute_cte_mrl, compute_cte_srl
 
 router = APIRouter()
 
@@ -105,6 +106,23 @@ async def get_cte(
             detail="CTE not found"
         )
     return cte
+
+
+@router.get("/{cte_id}/readiness-summary")
+async def get_cte_readiness_summary(
+    cte_id: int,
+    db: Session = Depends(get_db),
+    current_user=Depends(get_current_active_user)
+):
+    from app.api.deps import check_cte_access
+    await check_cte_access(cte_id)(current_user=current_user, db=db)
+    return {
+        "cte_id": cte_id,
+        "current_trl": compute_cte_trl(db, cte_id),
+        "current_irl": compute_cte_irl(db, cte_id),
+        "current_mrl": compute_cte_mrl(db, cte_id),
+        "current_srl": compute_cte_srl(db, cte_id),
+    }
 
 
 @router.patch("/{cte_id}", response_model=CTEResponse)

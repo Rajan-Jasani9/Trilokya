@@ -6,16 +6,24 @@ import CTEForm from '../components/ctes/CTEForm'
 import Modal from '../components/common/Modal'
 import LoadingSpinner from '../components/common/LoadingSpinner'
 import { FiPlus, FiArrowLeft, FiFolder } from 'react-icons/fi'
+import { useLocation } from 'react-router-dom'
 
 const CTEsPage = () => {
+  const location = useLocation()
   const [projects, setProjects] = useState([])
   const [selectedProject, setSelectedProject] = useState(null)
   const [selectedCTE, setSelectedCTE] = useState(null)
   const [editingCTE, setEditingCTE] = useState(null)
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
 
   useEffect(() => { loadProjects() }, [])
+  useEffect(() => {
+    const cteId = new URLSearchParams(location.search).get('cteId')
+    if (!cteId || !projects.length) return
+    openCTEDetailFromQuery(parseInt(cteId, 10))
+  }, [location.search, projects])
 
   const loadProjects = async () => {
     try {
@@ -24,6 +32,19 @@ const CTEsPage = () => {
       if (r.data.length > 0 && !selectedProject) setSelectedProject(r.data[0])
     } catch (error) { console.error('Error loading projects:', error) }
     finally { setLoading(false) }
+  }
+
+  const openCTEDetailFromQuery = async (cteId) => {
+    if (!Number.isFinite(cteId)) return
+    try {
+      const cteResponse = await api.get(`/ctes/${cteId}`)
+      const cte = cteResponse.data
+      setSelectedCTE(cte)
+      const project = projects.find((p) => p.id === cte.project_id)
+      if (project) setSelectedProject(project)
+    } catch (error) {
+      console.error('Error opening CTE detail from query param:', error)
+    }
   }
 
   const handleCTESelect = (cte) => setSelectedCTE(cte)
@@ -66,27 +87,40 @@ const CTEsPage = () => {
       </div>
 
       {/* Project Selector */}
-      <div className="card p-4">
-        <label htmlFor="project-select" className="form-label">Select Project</label>
-        <select
-          id="project-select"
-          value={selectedProject?.id || ''}
-          onChange={(e) => {
-            const p = projects.find(p => p.id === parseInt(e.target.value))
-            setSelectedProject(p); setSelectedCTE(null)
-          }}
-          className="input w-full md:w-auto md:min-w-[320px]"
-        >
-          <option value="">Select a project…</option>
-          {projects.map((p) => (
-            <option key={p.id} value={p.id}>{p.name} ({p.code})</option>
-          ))}
-        </select>
+      <div className="card p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="project-select" className="form-label">Project Filter</label>
+          <select
+            id="project-select"
+            value={selectedProject?.id || ''}
+            onChange={(e) => {
+              const p = projects.find(p => p.id === parseInt(e.target.value))
+              setSelectedProject(p); setSelectedCTE(null)
+            }}
+            className="input w-full"
+          >
+            <option value="">Select a project…</option>
+            {projects.map((p) => (
+              <option key={p.id} value={p.id}>{p.name} ({p.code})</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="cte-search" className="form-label">Search CTEs</label>
+          <input
+            id="cte-search"
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search by code, name, category, description..."
+            className="input w-full"
+          />
+        </div>
       </div>
 
       {/* CTE List */}
       {selectedProject ? (
-        <CTEList projectId={selectedProject.id} onCTESelect={handleCTESelect} />
+        <CTEList projectId={selectedProject.id} onCTESelect={handleCTESelect} searchQuery={search} />
       ) : (
         <div className="card p-12 text-center">
           <FiFolder className="h-10 w-10 text-gray-300 mx-auto mb-3" />

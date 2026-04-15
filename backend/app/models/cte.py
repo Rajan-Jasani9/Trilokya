@@ -65,6 +65,7 @@ class CTEIRLAssessment(Base):
     
     # Relationships
     cte = relationship("CTE", back_populates="irl_assessments")
+    responses = relationship("IRLResponse", back_populates="assessment", cascade="all, delete-orphan")
 
 
 class CTEMRLAssessment(Base):
@@ -81,6 +82,7 @@ class CTEMRLAssessment(Base):
     
     # Relationships
     cte = relationship("CTE", back_populates="mrl_assessments")
+    responses = relationship("MRLResponse", back_populates="assessment", cascade="all, delete-orphan")
 
 
 class CTESRLAssessment(Base):

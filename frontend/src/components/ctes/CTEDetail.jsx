@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react'
 import api from '../../services/api'
 import LoadingSpinner from '../common/LoadingSpinner'
 import TRLProgression from '../trl/TRLProgression'
+import IRLProgression from '../irl/IRLProgression'
+import MRLProgression from '../mrl/MRLProgression'
 import { FiArrowLeft, FiEdit, FiCheckCircle } from 'react-icons/fi'
+import { useToast } from '../common/ToastProvider'
 
 const getTRLBadge = (trl) => {
   if (!trl || trl === 0) return 'bg-gray-100 text-gray-600'
@@ -12,24 +15,35 @@ const getTRLBadge = (trl) => {
 }
 
 const CTEDetail = ({ cteId, onBack, onEdit }) => {
+  const { showToast } = useToast()
   const [cte, setCte] = useState(null)
   const [currentTRL, setCurrentTRL] = useState(0)
+  const [currentIRL, setCurrentIRL] = useState(0)
+  const [currentMRL, setCurrentMRL] = useState(0)
+  const [currentSRL, setCurrentSRL] = useState(0)
   const [assessments, setAssessments] = useState([])
+  const [activeTab, setActiveTab] = useState('trl')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => { loadCTE() }, [cteId])
 
   const loadCTE = async () => {
     try {
-      const [cteR, trlR, assR] = await Promise.all([
+      const [cteR, summaryR, assR] = await Promise.all([
         api.get(`/ctes/${cteId}`),
-        api.get(`/trl/ctes/${cteId}/current-trl`).catch(() => ({ data: { current_trl: 0 } })),
+        api.get(`/ctes/${cteId}/readiness-summary`).catch(() => ({ data: { current_trl: 0, current_irl: 0, current_mrl: 0, current_srl: 0 } })),
         api.get(`/trl/ctes/${cteId}/trl-assessments`).catch(() => ({ data: [] }))
       ])
       setCte(cteR.data)
-      setCurrentTRL(trlR.data.current_trl || 0)
+      setCurrentTRL(summaryR.data.current_trl || 0)
+      setCurrentIRL(summaryR.data.current_irl || 0)
+      setCurrentMRL(summaryR.data.current_mrl || 0)
+      setCurrentSRL(summaryR.data.current_srl || 0)
       setAssessments(assR.data || [])
-    } catch (error) { console.error('Error loading CTE:', error) }
+    } catch (error) {
+      console.error('Error loading CTE:', error)
+      showToast('Failed to load CTE details.', 'error')
+    }
     finally { setLoading(false) }
   }
 
@@ -56,6 +70,9 @@ const CTEDetail = ({ cteId, onBack, onEdit }) => {
             <div className={`px-3 py-1.5 rounded text-xs font-bold ${getTRLBadge(currentTRL)}`}>
               TRL {currentTRL || 'N/A'}
             </div>
+            <div className="px-3 py-1.5 rounded text-xs font-bold bg-blue-50 text-blue-700">IRL {currentIRL || 0}</div>
+            <div className="px-3 py-1.5 rounded text-xs font-bold bg-purple-50 text-purple-700">MRL {currentMRL || 0}</div>
+            <div className="px-3 py-1.5 rounded text-xs font-bold bg-teal-50 text-teal-700">SRL {currentSRL || 0}</div>
             {onEdit && (
               <button onClick={() => onEdit(cte)} className="btn-secondary text-sm">
                 <FiEdit className="h-4 w-4" /><span>Edit</span>
@@ -87,8 +104,44 @@ const CTEDetail = ({ cteId, onBack, onEdit }) => {
         </div>
       </div>
 
-      {/* TRL Progression */}
-      <TRLProgression cteId={cteId} currentTRL={currentTRL} onTRLUpdated={loadCTE} />
+      <div className="card p-3">
+        <div className="flex gap-2">
+          {['trl', 'irl', 'mrl', 'srl'].map((tab) => (
+            <button key={tab} className={`btn-secondary text-xs ${activeTab === tab ? '!bg-primary-100 !border-primary-500' : ''}`} onClick={() => setActiveTab(tab)}>{tab.toUpperCase()}</button>
+          ))}
+        </div>
+      </div>
+
+      {activeTab === 'trl' && <TRLProgression cteId={cteId} currentTRL={currentTRL} onTRLUpdated={loadCTE} />}
+      {activeTab === 'irl' && <IRLProgression cteId={cteId} currentIRL={currentIRL} onIRLUpdated={loadCTE} />}
+      {activeTab === 'mrl' && <MRLProgression cteId={cteId} currentMRL={currentMRL} onMRLUpdated={loadCTE} />}
+      {activeTab === 'srl' && (
+        <div className="card p-5">
+          <h2 className="section-title">Derived SRL</h2>
+          <p className="text-sm text-gray-600 mt-2">SRL is derived as min(TRL, IRL, MRL).</p>
+          <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+            <div className="card p-3">TRL: {currentTRL}</div>
+            <div className="card p-3">IRL: {currentIRL}</div>
+            <div className="card p-3">MRL: {currentMRL}</div>
+            <div className="card p-3 font-semibold">SRL: {currentSRL}</div>
+          </div>
+        </div>
+      )}
+
+      <div className="card p-5">
+        <h2 className="section-title">Milestone Viewer</h2>
+        <div className="mt-4 space-y-2 text-sm">
+          {[['TRL', currentTRL], ['IRL', currentIRL], ['MRL', currentMRL], ['SRL', currentSRL]].map(([name, value]) => (
+            <div key={name} className="flex items-center gap-3">
+              <span className="w-10 font-medium">{name}</span>
+              <div className="h-2 bg-gray-100 rounded-full flex-1 overflow-hidden">
+                <div className="h-full bg-primary-600 rounded-full" style={{ width: `${Math.min(100, (value / 9) * 100)}%` }} />
+              </div>
+              <span className="w-6 text-right">{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Assessment History */}
       <div className="card p-5">

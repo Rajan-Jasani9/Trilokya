@@ -6,6 +6,7 @@ import ProjectMemberAssignment from './ProjectMemberAssignment'
 import ProjectMetricsInfographic from './ProjectMetricsInfographic'
 import { FiEdit, FiUsers, FiPlus, FiArrowLeft, FiFolder, FiTrash2 } from 'react-icons/fi'
 import { useAuth } from '../../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refreshTrigger, onProjectDeleted }) => {
   const [project, setProject] = useState(null)
@@ -14,6 +15,7 @@ const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refr
   const [loading, setLoading] = useState(true)
   const [showMemberModal, setShowMemberModal] = useState(false)
   const { user } = useAuth()
+  const navigate = useNavigate()
 
   const userRoles = user?.roles || []
   const canAssignMembers = Array.isArray(userRoles)
@@ -191,7 +193,7 @@ const ProjectDetail = ({ projectId, onBack, onEdit, onAddCTE, onCTECreated, refr
               <div
                 key={cte.id}
                 className="card card-hover p-4 cursor-pointer"
-                onClick={() => { window.location.href = `/app/ctes?cteId=${cte.id}` }}
+                onClick={() => navigate(`/app/ctes?cteId=${cte.id}`)}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex-1 min-w-0">

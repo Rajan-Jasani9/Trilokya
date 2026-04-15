@@ -47,6 +47,9 @@ class ProjectResponse(ProjectBase):
     org_unit_ids: List[int] = []
     technology_ids: List[int] = []
     current_trl: Optional[int] = None
+    current_irl: Optional[int] = None
+    current_mrl: Optional[int] = None
+    current_srl: Optional[int] = None
     trl_overrides: Optional[List[dict]] = None
     members: Optional[List[dict]] = None
     

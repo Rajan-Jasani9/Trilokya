@@ -42,6 +42,20 @@ class OrgUnitResponse(BaseModel):
         from_attributes = True
 
 
+class OrgUnitCreate(BaseModel):
+    code: str
+    name: str
+    parent_id: Optional[int] = None
+    org_type: str
+
+
+class OrgUnitUpdate(BaseModel):
+    code: Optional[str] = None
+    name: Optional[str] = None
+    parent_id: Optional[int] = None
+    org_type: Optional[str] = None
+
+
 class UserResponse(UserBase):
     id: int
     is_active: bool

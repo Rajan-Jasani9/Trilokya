@@ -13,33 +13,36 @@ import ApprovalsPage from './pages/ApprovalsPage'
 import AdminPage from './pages/AdminPage'
 import UsersPage from './pages/UsersPage'
 import ProfilePage from './pages/ProfilePage'
+import { ToastProvider } from './components/common/ToastProvider'
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/app"
-            element={
-              <ProtectedRoute>
-                <Layout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<Navigate to="/app/technologies" replace />} />
-            <Route path="technologies" element={<TechnologiesPage />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="projects" element={<ProjectsPage />} />
-            <Route path="ctes" element={<CTEsPage />} />
-            <Route path="approvals" element={<ApprovalsPage />} />
-            <Route path="users" element={<UsersPage />} />
-            <Route path="admin" element={<AdminPage />} />
-            <Route path="profile" element={<ProfilePage />} />
-          </Route>
-        </Routes>
+        <ToastProvider>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/app"
+              element={
+                <ProtectedRoute>
+                  <Layout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<Navigate to="/app/technologies" replace />} />
+              <Route path="technologies" element={<TechnologiesPage />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="ctes" element={<CTEsPage />} />
+              <Route path="approvals" element={<ApprovalsPage />} />
+              <Route path="users" element={<UsersPage />} />
+              <Route path="admin" element={<AdminPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+            </Route>
+          </Routes>
+        </ToastProvider>
       </AuthProvider>
     </Router>
   )

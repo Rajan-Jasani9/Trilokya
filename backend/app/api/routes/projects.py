@@ -49,8 +49,12 @@ async def list_projects(
     
     # Include current TRL and computed target TRL for each project
     from app.core.trl_engine import compute_project_trl, compute_project_target_trl
+    from app.core.readiness_engine import compute_project_irl, compute_project_mrl, compute_project_srl
     for project in projects:
         project.current_trl = compute_project_trl(db, project.id)
+        project.current_irl = compute_project_irl(db, project.id)
+        project.current_mrl = compute_project_mrl(db, project.id)
+        project.current_srl = compute_project_srl(db, project.id, project.current_trl)
         # Compute target TRL as min of all CTE target TRLs
         computed_target_trl = compute_project_target_trl(db, project.id)
         if computed_target_trl is not None:
@@ -151,7 +155,11 @@ async def get_project(
     
     # Include current TRL
     from app.core.trl_engine import compute_project_trl, compute_project_target_trl
+    from app.core.readiness_engine import compute_project_irl, compute_project_mrl, compute_project_srl
     project.current_trl = compute_project_trl(db, project_id)
+    project.current_irl = compute_project_irl(db, project_id)
+    project.current_mrl = compute_project_mrl(db, project_id)
+    project.current_srl = compute_project_srl(db, project_id, project.current_trl)
     
     # Compute and set target TRL as min of all CTE target TRLs
     computed_target_trl = compute_project_target_trl(db, project_id)

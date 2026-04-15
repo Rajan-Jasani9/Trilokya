@@ -2,11 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 from app.database import get_db
-from app.models import CTE, CTETRLAssessment, TRLDefinition, TRLQuestion, TRLResponse
+from app.models import CTE, CTETRLAssessment, TRLDefinition, TRLQuestion, TRLResponse, EvidenceItem, ProjectReadinessConfig
 from app.schemas.cte import CTETRLAssessmentCreate, CTETRLAssessmentResponse
 from app.schemas.trl import TRLDefinitionResponse, TRLQuestionResponse, TRLResponseCreate, TRLResponseResponse, AdvanceTRLRequest
 from app.api.deps import get_current_active_user, check_cte_access
 from app.models.cte import AssessmentStatus
+from app.core.readiness_engine import compute_cte_irl, compute_cte_mrl, get_coupling_requirement, get_strict_mode_default
 
 router = APIRouter()
 
@@ -254,6 +255,27 @@ async def advance_trl_level(
                     detail=f"Evidence required for question: {question.question_text}"
                 )
     
+    # Evaluate IRL/MRL coupling against configured matrix
+    required = get_coupling_requirement(db, target_level)
+    current_irl = compute_cte_irl(db, cte_id)
+    current_mrl = compute_cte_mrl(db, cte_id)
+    cte = db.query(CTE).filter(CTE.id == cte_id).first()
+    strict_mode = get_strict_mode_default(db)
+    if cte:
+        project_cfg = db.query(ProjectReadinessConfig).filter(ProjectReadinessConfig.project_id == cte.project_id).first()
+        if project_cfg and project_cfg.strict_mode_override is not None:
+            strict_mode = project_cfg.strict_mode_override
+
+    coupling_ok = current_irl >= required["min_irl"] and current_mrl >= required["min_mrl"]
+    if strict_mode and not coupling_ok:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=(
+                f"Strict mode enabled. TRL {target_level} requires minimum IRL {required['min_irl']} "
+                f"(current {current_irl}) and MRL {required['min_mrl']} (current {current_mrl})."
+            )
+        )
+
     # Mark assessment as approved (no approval workflow needed)
     from app.models.cte import AssessmentStatus
     assessment.status = AssessmentStatus.APPROVED
@@ -262,5 +284,40 @@ async def advance_trl_level(
     
     return {
         "message": f"Successfully advanced to TRL {target_level}",
-        "current_trl": target_level
+        "current_trl": target_level,
+        "coupling": {
+            "strict_mode": strict_mode,
+            "required_min_irl": required["min_irl"],
+            "required_min_mrl": required["min_mrl"],
+            "current_irl": current_irl,
+            "current_mrl": current_mrl,
+            "satisfied": coupling_ok,
+        }
+    }
+
+
+@router.get("/ctes/{cte_id}/coupling-status/{target_level}")
+async def get_trl_coupling_status(
+    cte_id: int,
+    target_level: int,
+    db: Session = Depends(get_db),
+    current_user=Depends(get_current_active_user)
+):
+    await check_cte_access(cte_id)(current_user=current_user, db=db)
+    required = get_coupling_requirement(db, target_level)
+    current_irl = compute_cte_irl(db, cte_id)
+    current_mrl = compute_cte_mrl(db, cte_id)
+    cte = db.query(CTE).filter(CTE.id == cte_id).first()
+    strict_mode = get_strict_mode_default(db)
+    if cte:
+        project_cfg = db.query(ProjectReadinessConfig).filter(ProjectReadinessConfig.project_id == cte.project_id).first()
+        if project_cfg and project_cfg.strict_mode_override is not None:
+            strict_mode = project_cfg.strict_mode_override
+    return {
+        "strict_mode": strict_mode,
+        "required_min_irl": required["min_irl"],
+        "required_min_mrl": required["min_mrl"],
+        "current_irl": current_irl,
+        "current_mrl": current_mrl,
+        "satisfied": current_irl >= required["min_irl"] and current_mrl >= required["min_mrl"],
     }

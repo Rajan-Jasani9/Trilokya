@@ -2,8 +2,17 @@ import React, { useState, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import api from '../services/api'
 import LoadingSpinner from '../components/common/LoadingSpinner'
-import { FiFolder, FiUsers, FiActivity, FiTarget, FiTrendingUp, FiAlertCircle, FiCheckCircle, FiClock } from 'react-icons/fi'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, PieChart, Pie, Legend } from 'recharts'
+import { FiFolder, FiUsers, FiActivity, FiTarget, FiTrendingUp, FiAlertCircle, FiCheckCircle } from 'react-icons/fi'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from 'recharts'
+
+const getCTECurrentTRLFromAssessments = (cte) => {
+  const assessments = Array.isArray(cte?.trl_assessments) ? cte.trl_assessments : []
+  const approvedLevels = assessments
+    .filter((assessment) => assessment?.status === 'approved')
+    .map((assessment) => Number(assessment?.trl_level) || 0)
+    .filter((level) => level >= 1 && level <= 9)
+  return approvedLevels.length > 0 ? Math.max(...approvedLevels) : 0
+}
 
 const Dashboard = () => {
   const [projects, setProjects] = useState([])
@@ -18,39 +27,34 @@ const Dashboard = () => {
 
   const loadDashboardData = async () => {
     try {
-      const projectsResponse = await api.get('/projects')
+      const [projectsResponse, usersResult] = await Promise.all([
+        api.get('/projects'),
+        api.get('/users/accessible').catch(() => api.get('/users')).catch(() => ({ data: [] })),
+      ])
+
       const projectsData = projectsResponse.data || []
       setProjects(projectsData)
 
-      // Load all CTEs with their TRLs
-      const ctePromises = []
-      for (const project of projectsData) {
-        try {
-          const ctesResponse = await api.get(`/ctes/projects/${project.id}/ctes`).catch(() => ({ data: [] }))
-          for (const cte of ctesResponse.data) {
-            try {
-              const trlResponse = await api.get(`/trl/ctes/${cte.id}/current-trl`).catch(() => ({ data: { current_trl: 0 } }))
-              ctePromises.push({ ...cte, current_trl: trlResponse.data?.current_trl || 0, project_name: project.name })
-            } catch {
-              ctePromises.push({ ...cte, current_trl: 0, project_name: project.name })
-            }
-          }
-        } catch (e) { /* ignore */ }
-      }
-      const enrichedCTEs = await Promise.all(ctePromises)
+      // Fetch CTE lists for all projects in parallel, then derive CTE TRL locally.
+      const cteResponses = await Promise.all(
+        projectsData.map((project) =>
+          api.get(`/ctes/projects/${project.id}/ctes`)
+            .then((response) => ({ project, ctes: response.data || [] }))
+            .catch(() => ({ project, ctes: [] }))
+        )
+      )
+
+      const enrichedCTEs = cteResponses.flatMap(({ project, ctes }) =>
+        ctes.map((cte) => ({
+          ...cte,
+          current_trl: getCTECurrentTRLFromAssessments(cte),
+          project_name: project.name,
+        }))
+      )
       setAllCTEs(enrichedCTEs)
 
-      let totalCTEs = enrichedCTEs.length
-
-      let totalUsers = 0
-      try {
-        const usersResponse = await api.get('/users/accessible').catch(() => api.get('/users'))
-        totalUsers = usersResponse.data?.length || 0
-      } catch (e) {
-        console.error('Error loading users:', e)
-      }
-
-      setStats({ totalProjects: projectsData.length, activeCTEs: totalCTEs, totalUsers })
+      const totalUsers = usersResult.data?.length || 0
+      setStats({ totalProjects: projectsData.length, activeCTEs: enrichedCTEs.length, totalUsers })
     } catch (error) {
       console.error('Error loading dashboard data:', error)
     } finally {
