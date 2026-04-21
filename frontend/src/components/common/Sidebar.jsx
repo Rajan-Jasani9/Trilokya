@@ -89,7 +89,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
           {/* Sidebar footer */}
           <div className="px-4 py-3 border-t text-xs text-gray-400" style={{ borderColor: '#D9E2E2' }}>
-            Trilokya v1.0
+            TRILOKYA v1.0
           </div>
         </div>
       </aside>

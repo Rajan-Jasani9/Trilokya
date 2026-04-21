@@ -64,12 +64,14 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
           <div className="text-center">
             {/* Logo */}
-            <div className="inline-flex items-center justify-center h-20 w-20 bg-primary-700 rounded-md mb-6 shadow-lg">
-              <span className="text-white font-bold text-3xl tracking-wide">TRI</span>
-            </div>
+            <img
+              src="/branding/trilokya.png"
+              alt="TRILOKYA"
+              className="h-20 w-20 object-contain mx-auto mb-6"
+            />
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-4">
-              Trilokya
+              TRILOKYA
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-2 font-medium">
               Technology Readiness Level Monitoring System
@@ -227,7 +229,7 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Why Trilokya?
+                Why TRILOKYA?
               </h2>
               <div className="space-y-4">
                 {[
@@ -305,7 +307,7 @@ const LandingPage = () => {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Access the Trilokya Project Monitoring System to begin tracking your technology readiness
+            Access the TRILOKYA Project Monitoring System to begin tracking your technology readiness
           </p>
           <Link
             to="/login"
@@ -321,10 +323,12 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded bg-primary-700 flex items-center justify-center">
-                <span className="text-white font-bold text-sm tracking-wide">TRI</span>
-              </div>
-              <span className="text-sm font-semibold text-gray-900">Trilokya v1.0</span>
+              <img
+                src="/branding/trilokya.png"
+                alt="TRILOKYA"
+                className="h-8 w-8 object-contain"
+              />
+              <span className="text-sm font-semibold text-gray-900">TRILOKYA v1.0</span>
             </div>
             <p className="text-xs text-gray-500">
               Technology Readiness Level Monitoring System — Defense Research & Development

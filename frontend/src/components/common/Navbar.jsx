@@ -32,11 +32,13 @@ const Navbar = ({ onMenuClick }) => {
               <FiMenu className="h-5 w-5" />
             </button>
             <div className="flex items-center gap-2.5">
-              <div className="h-8 w-8 bg-white/15 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-xs tracking-wide">TRI</span>
-              </div>
+              <img
+                src="/branding/trilokya.png"
+                alt="TRILOKYA"
+                className="h-8 w-8 object-contain"
+              />
               <h1 className="text-base font-semibold text-white hidden sm:block tracking-wide">
-                Trilokya
+                TRILOKYA
               </h1>
             </div>
           </div>

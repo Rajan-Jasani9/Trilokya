@@ -21,7 +21,8 @@ function App() {
       <AuthProvider>
         <ToastProvider>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/landing" element={<LandingPage />} />
             <Route path="/login" element={<Login />} />
             <Route
               path="/app"
